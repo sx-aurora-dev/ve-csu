@@ -10,8 +10,8 @@ in order to use them from clang/llvm for VE [2].
 Please see the documentation provided in NetBSD-README for further
 assistance with NetBSD CSU.
 
-Prerequestie
-============
+Prerequisites
+=============
 
  - clang/llvm for VE
 
