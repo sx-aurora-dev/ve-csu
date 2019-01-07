@@ -22,6 +22,10 @@ Compile CSU with make and clang/llvm for VE.
 
     $ make
 
+Install CSU.
+
+    $ make DEST=... install
+
 LICENSE
 =======
 
