@@ -26,8 +26,8 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#include <sys/cdefs.h>
-__RCSID("$NetBSD: crtbegin.c,v 1.17 2018/12/28 18:17:11 christos Exp $");
+// #include <sys/cdefs.h>
+// __RCSID("$NetBSD: crtbegin.c,v 1.17 2018/12/28 18:17:11 christos Exp $");
 
 #include "crtbegin.h"
 
@@ -88,8 +88,10 @@ __do_global_ctors_aux(void)
 		Jv_RegisterClasses(__JCR_LIST__);
 
 #if !defined(HAVE_INITFINI_ARRAY)
-	for (const fptr_t *p = __CTOR_LIST_END__; p > &__CTOR_LIST__start + 1; ) {
-		(*(*--p))();
+	const fptr_t *p;
+	for (p = &__CTOR_LIST__start + 1; *p != 0; ++p);
+	while (--p > &__CTOR_LIST__start) {
+		(*(*p))();
 	}
 #endif
 }
@@ -122,7 +124,7 @@ __do_global_dtors_aux(void)
 #endif
 
 #if !defined(HAVE_INITFINI_ARRAY)
-	for (const fptr_t *p = &__DTOR_LIST__start + 1; p < __DTOR_LIST_END__; ) {
+	for (const fptr_t *p = &__DTOR_LIST__start + 1; p < __DTOR_LIST_END__ && *p != 0; ) {
 		(*(*p++))();
 	}
 #endif
