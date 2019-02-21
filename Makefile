@@ -5,7 +5,8 @@ MACHINE_ARCH=ve
 ARCHDIR=arch/ve
 OBJCOPY=cp
 MKSTRIPIDENT=no
-CC=clang -target ve-linux -O
+TARGET=ve-linux
+CC=clang -target $(TARGET) -O
 
 # DEST?=/opt/nec/nosupport/llvm/lib/clang/8.0.0/lib/linux/ve
 DEST?=dest
