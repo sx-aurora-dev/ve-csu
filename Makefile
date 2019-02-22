@@ -6,7 +6,8 @@ ARCHDIR=arch/ve
 OBJCOPY=cp
 MKSTRIPIDENT=no
 TARGET=ve-linux
-CC=clang -target $(TARGET) -O
+CLANG=clang
+CC=${CLANG} -target $(TARGET) -O
 
 # DEST?=/opt/nec/nosupport/llvm/lib/clang/8.0.0/lib/linux/ve
 DEST?=dest
