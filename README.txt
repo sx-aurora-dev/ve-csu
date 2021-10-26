@@ -1,3 +1,13 @@
+Archived Peojct
+===============
+
+This project is obsoleted and archived project.  In addition, we are not
+using ve-csu anymore since llvm has it's own crt libraries as a part of
+compiler-rt.
+
+Please refer current llvm monorepo for VE
+(https://github.com/sx-aurora-dev/llvm-project) for the latest information.
+
 CSU for NEC SX-Aurora VE
 ========================
 
